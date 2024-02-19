@@ -15,7 +15,6 @@ public class UmlautRedirectController {
     @ResponseBody
     @GetMapping("/hallöchen")
     public String helloWithUmlaut() {
-        // not reached so missing template does not matter
         return "Hallöchen";
     }
 
@@ -28,7 +27,6 @@ public class UmlautRedirectController {
     @ResponseBody
     @GetMapping("/hi/")
     public String hi() {
-        // not reached so missing template does not matter
         return "Hi";
     }
 }
