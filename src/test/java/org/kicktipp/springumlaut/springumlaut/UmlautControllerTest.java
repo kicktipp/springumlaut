@@ -22,13 +22,19 @@ public class UmlautControllerTest {
 
     @Test
     void testWithUmlaut() {
-        String url = "http://localhost:" + port + "/hallo/";
+        String url = "http://localhost:" + port + "/hallo";
+        assertEquals("Hallöchen", this.restTemplate.getForObject(url, String.class));
+    }
+
+    @Test
+    void testWithoutRedirectButWithUmlaut() {
+        String url = "http://localhost:" + port + "/hallöchen";
         assertEquals("Hallöchen", this.restTemplate.getForObject(url, String.class));
     }
 
     @Test
     void testWithoutUmlaut() {
-        String url = "http://localhost:" + port + "/hello/";
+        String url = "http://localhost:" + port + "/hello";
         assertEquals("Hi", this.restTemplate.getForObject(url, String.class));
     }
 }

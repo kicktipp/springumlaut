@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class UmlautRedirectController {
 
-    @GetMapping("/hallo/")
+    @GetMapping("/hallo")
     public String hallo() {
         return "redirect:/hallöchen";
     }
@@ -19,13 +19,13 @@ public class UmlautRedirectController {
     }
 
 
-    @GetMapping("/hello/")
+    @GetMapping("/hello")
     public String hello() {
-        return "redirect:/hi/";
+        return "redirect:/hi";
     }
 
     @ResponseBody
-    @GetMapping("/hi/")
+    @GetMapping("/hi")
     public String hi() {
         return "Hi";
     }
