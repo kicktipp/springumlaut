@@ -20,18 +20,35 @@ public class UmlautControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
+    // does not work
     @Test
     void testWithUmlaut() {
         String url = "http://localhost:" + port + "/hallo";
         assertEquals("Hallöchen", this.restTemplate.getForObject(url, String.class));
     }
 
+    // does work
     @Test
     void testWithoutRedirectButWithUmlaut() {
         String url = "http://localhost:" + port + "/hallöchen";
         assertEquals("Hallöchen", this.restTemplate.getForObject(url, String.class));
     }
 
+    // ok with redirectattributes
+    @Test
+    void testWithRedirectattributes() {
+        String url = "http://localhost:" + port + "/redirectattributes";
+        assertEquals("Hallöchen", this.restTemplate.getForObject(url, String.class));
+    }
+
+    // ok with manual encoding
+    @Test
+    void testWithEncoding() {
+        String url = "http://localhost:" + port + "/encoding";
+        assertEquals("Hallöchen", this.restTemplate.getForObject(url, String.class));
+    }
+
+    // ok without any umlauts
     @Test
     void testWithoutUmlaut() {
         String url = "http://localhost:" + port + "/hello";
